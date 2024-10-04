@@ -1,10 +1,9 @@
 package org.efrei.demo.models;
-
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "actor")
 public class Actor {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -12,27 +11,46 @@ public class Actor {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "firstname")
-    private String firstName;
+    @Column(name = "firstname", nullable = false)
+    private String firstname;
 
-    public Actor(String name, String firstName) {
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
+    private Movie movie;
+
+    public Actor(String name, String firstname) {
         this.name = name;
-        this.firstName = firstName;
+        this.firstname = firstname;
     }
+
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+
     public Actor() {
 
     }
+
+
     public String getName() {
         return name;
     }
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 }
