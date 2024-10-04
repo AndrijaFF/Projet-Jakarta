@@ -34,7 +34,7 @@ public class Movie {
     public int getDuration() {
         return duration;
     }
-
+// f
     public void setDuration(int duration) {
         this.duration = duration;
     }
