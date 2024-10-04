@@ -15,7 +15,6 @@ public class Movie {
     private String title;
     private int duration;
 
-    // Getters et setters
     public String getId() {
         return id;
     }
